@@ -6,11 +6,15 @@ const router = express.Router();
 
 // Public Routes
 router.get("/", getAllJobs); // Get all jobs
-router.get("/:id", getJobById); // Get a single job by ID
+router.get("/:id", getJobById); // Get job by ID
 
 // Protected Routes (Employer Only)
 router.post("/", protect, authorizeRoles("employer"), createJob);
 router.put("/:id", protect, authorizeRoles("employer"), updateJob);
 router.delete("/:id", protect, authorizeRoles("employer"), deleteJob);
 
+
+
+
 module.exports = router;
+
